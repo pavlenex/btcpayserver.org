@@ -1,794 +1,1051 @@
 <!DOCTYPE html>
-<html dir="ltr">
+<html lang="en_GB" dir="ltr" data-theme="light">
 
 <head>
-    <meta charset=UTF-8>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="description" content="BTCPay Server is a self-hosted, open-source cryptocurrency payment processor. It's secure, private, censorship-resistant and free.">
-    <meta name="keywords" content="btcpay">
-    <meta name="author" content="Ed Sinaswee | flat18.co.uk">
-    <meta property="og:title" content="BTCPay Server">
-    <meta property="og:description" content="BTCPay Server is a self-hosted, open-source cryptocurrency payment processor. It's secure, private, censorship-resistant and free.">
-    <meta property="og:image" content="/img/favicon.png">
-    <link rel="icon" type="image/png" href="/img/favicon.png">
-    <title>BTCPay Server</title>
-    <link rel="stylesheet" type="text/css" href="/css/fa_.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
-    <script>
-        window.jsEnviron = true;
-        window.cMod = "stickLeft";
-        window.rl = "right";
-        window.donationTitle = ("Enter an amount to donate")[0] != "$" ?
-            "Enter an amount to donate" :
-            "Enter an amount to donate";
-        window.noJSVideo = "Click here to open video in a new tab";
-        window.closeDonationL = "close";
-        window.donWor = "DONATE";
-        window.language = "en";
-
-    </script>
-    <!-- Schema.org JSON-LD Markup for Search Engine Optimization -->
-<script type='application/ld+json'>
-    {
-        "@context": "https://schema.org/",
-        "@type": "SoftwareApplication",
-        "applicationCategory": "FinanceApplication",
-        "name": "BTCPay Server",
-        "image": "https://btcpayserver.org/img/favicon.png",
-        "availableOnDevice": "Desktop",
-        "author": {
-            "@type": "Organization",
-            "url": "https://foundation.btcpayserver.org/",
-            "name": "BTCPay Server Foundation",
-            "sameAs": [
-                "https://twitter.com/BtcpayServer",
-                "https://t.me/btcpayserver",
-                "http://chat.btcpayserver.org/"
-            ]
-        },
-        "downloadUrl": "https://github.com/btcpayserver/btcpayserver/releases",
-        "fileSize": "6MB",
-        "operatingSystem": [
-            "Windows",
-            "Linux"
-        ],
-        "releaseNotes": "https://blog.btcpayserver.org/changelog/",
-        "screenshot": "https://blog.btcpayserver.org/wp-content/uploads/2019/05/BTCPay-Invoices-1024x552.gif",
-        "softwareVersion": "1.0.3.133",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5",
-            "ratingCount": "20"
-        },
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "BTC"
-        }
-    }
-
-</script>
+	<meta charset=UTF-8>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=1">
+	<meta name="description" content="BTCPay Server is a self-hosted, open-source cryptocurrency payment processor. It's secure, private, censorship-resistant and free.">
+	<meta name="keywords" content="btcpay">
+	<meta name="author" content="Ed Sinaswee | flat18.co.uk">
+	<meta property="og:title" content="BTCPay Server">
+	<meta property="og:description" content="BTCPay Server is a self-hosted, open-source cryptocurrency payment processor. It's secure, private, censorship-resistant and free.">
+	<meta property="og:image" content="/card.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<meta name="msapplication-TileColor" content="#0f3b21">
+	<meta name="theme-color" content="#ffffff">
+	<title>BTCPay Server</title>
+	<link rel="stylesheet" type="text/css" href="/css/fa_.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="/css/page-styles.css">
+	<!-- Schema.org JSON-LD Markup for Search Engine Optimization -->
+	<script type='application/ld+json'>
+            {
+                "@context": "https://schema.org/",
+                "@type": "SoftwareApplication",
+                "applicationCategory": "FinanceApplication",
+                "name": "BTCPay Server",
+                "image": "https://btcpayserver.org/img/favicon.png",
+                "availableOnDevice": "Desktop",
+                "author": {
+                    "@type": "Organization",
+                    "url": "https://foundation.btcpayserver.org/",
+                    "name": "BTCPay Server Foundation",
+                    "sameAs": ["https://twitter.com/BtcpayServer", "https://t.me/btcpayserver", "http://chat.btcpayserver.org/"]
+                },
+                "downloadUrl": "https://github.com/btcpayserver/btcpayserver/releases",
+                "fileSize": "6MB",
+                "operatingSystem": [
+                    "Windows", "Linux"
+                ],
+                "releaseNotes": "https://blog.btcpayserver.org/changelog/",
+                "screenshot": "https://blog.btcpayserver.org/wp-content/uploads/2019/05/BTCPay-Invoices-1024x552.gif",
+                "softwareVersion": "1.0.5.2",
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "5",
+                    "ratingCount": "20"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "BTC"
+                }
+            }
+        </script>
 </head>
 
 <body>
-    <div id="p-nm-co-ho">
-        <div class="pageContainerTopBackground __fal-right">
-            <div class="">
-                <div class="menuBar" id="topMarker" dir='ltr'>
-                    <svg class="_Logo" onclick="window.location=\'/\'" version="1.1" id="_Logo_1"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                        width="200px" height="100px" viewBox="0 0 200 100" enable-background="new 0 0 200 100"
-                        xml:space="preserve">
-                        <g>
-                            <path fill="#CEDC21" d="M9.206,91.433c-2.684,0-4.859-2.177-4.859-4.861V13.431c0-2.685,2.176-4.861,4.859-4.861
+	<div id="p-nm-co-ho">
+		<div class="pageContainerTopBackground __fal-right">
+			<div>
+				<div class="menuBar" id="topMarker" dir='ltr'>
+    <a href="../"><svg class="_Logo" onclick="window.location='/'" version="1.1" id="_Logo_1"
+            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="200px"
+            height="100px" viewBox="0 0 200 100" enable-background="new 0 0 200 100" xml:space="preserve">
+            <g>
+                <path fill="#CEDC21" d="M9.206,91.433c-2.684,0-4.859-2.177-4.859-4.861V13.431c0-2.685,2.176-4.861,4.859-4.861
                             s4.86,2.177,4.86,4.861v73.141C14.066,89.256,11.89,91.433,9.206,91.433" />
-                            <path fill="#51B13E"
-                                d="M9.209,91.433c-1.818,0-3.561-1.025-4.394-2.777c-1.151-2.424-0.118-5.322,2.308-6.476L36.43,68.274
+                <path fill="#51B13E"
+                    d="M9.209,91.433c-1.818,0-3.561-1.025-4.394-2.777c-1.151-2.424-0.118-5.322,2.308-6.476L36.43,68.274
                             L6.323,46.093c-2.16-1.593-2.621-4.635-1.029-6.796s4.636-2.622,6.795-1.03l36.647,26.999c1.377,1.016,2.12,2.678,1.956,4.381
                             c-0.164,1.7-1.209,3.19-2.755,3.925L11.289,90.964C10.618,91.281,9.907,91.433,9.209,91.433" />
-                            <path fill="#CEDC21"
-                                d="M9.211,62.684c-1.493,0-2.965-0.685-3.917-1.979c-1.592-2.159-1.131-5.204,1.03-6.795L36.43,31.73
+                <path fill="#CEDC21"
+                    d="M9.211,62.684c-1.493,0-2.965-0.685-3.917-1.979c-1.592-2.159-1.131-5.204,1.03-6.795L36.43,31.73
                             L7.123,17.821c-2.426-1.151-3.459-4.05-2.309-6.475c1.152-2.426,4.051-3.459,6.475-2.309l36.648,17.394
                             c1.546,0.733,2.591,2.225,2.755,3.926c0.164,1.702-0.579,3.364-1.956,4.379l-36.647,27C11.22,62.375,10.211,62.684,9.211,62.684" />
-                            <polygon fill="#1E7A44" points="14.066,39.725 14.066,60.278 28.01,50.006 	" />
-                            <rect x="4.347" y="31.106" fill="#FFFFFF" width="9.72" height="23.692" />
-                            <path fill="#CEDC21"
-                                d="M14.066,13.431c0-2.685-2.177-4.861-4.86-4.861s-4.859,2.177-4.859,4.861v61.165h9.72V13.431z" />
-                            <g class="icon-text">
-                                <path d="M78.355,49.412c3.114,0.884,4.84,3.704,4.84,7.238c0,5.513-3.368,8.082-7.955,8.082H64.761V35.271h9.259
+                <polygon fill="#1E7A44" points="14.066,39.725 14.066,60.278 28.01,50.006 	" />
+                <rect x="4.347" y="31.106" fill="#FFFFFF" width="9.72" height="23.692" />
+                <path fill="#CEDC21"
+                    d="M14.066,13.431c0-2.685-2.177-4.861-4.86-4.861s-4.859,2.177-4.859,4.861v61.165h9.72V13.431z" />
+                <g class="icon-text">
+                    <path d="M78.355,49.412c3.114,0.884,4.84,3.704,4.84,7.238c0,5.513-3.368,8.082-7.955,8.082H64.761V35.271h9.259
                             c4.504,0,7.997,2.146,7.997,7.743C82.017,45.835,80.838,48.444,78.355,49.412 M74.062,48.696c3.324,0,6.018-1.179,6.018-5.724
                             c0-4.586-2.776-5.808-6.145-5.808h-7.197v11.531H74.062z M75.114,62.795c3.366,0,6.06-1.768,6.06-6.145
                             c0-4.713-3.072-6.144-6.901-6.144h-7.534v12.288H75.114z" />
-                                <polygon points="102.893,35.271 102.893,37.081 94.771,37.081 94.771,64.732 92.792,64.732 92.792,37.081
+                    <polygon points="102.893,35.271 102.893,37.081 94.771,37.081 94.771,64.732 92.792,64.732 92.792,37.081
                             84.669,37.081 84.669,35.271 	" />
-                                <path
-                                    d="M116.738,34.85c5.01,0,9.554,2.524,10.987,8.543h-1.895c-1.348-4.923-5.303-6.732-9.134-6.732
+                    <path
+                        d="M116.738,34.85c5.01,0,9.554,2.524,10.987,8.543h-1.895c-1.348-4.923-5.303-6.732-9.134-6.732
                             c-6.944,0-10.605,5.681-10.605,13.341c0,8.08,3.661,13.256,10.646,13.256c4.125,0,7.828-1.85,9.26-7.279h1.895
                             c-1.264,6.271-6.229,9.174-11.154,9.174c-7.87,0-12.583-5.808-12.583-15.15C104.155,41.037,109.124,34.85,116.738,34.85" />
-                                <path
-                                    d="M142.709,35.271c5.091,0,8.795,3.326,8.795,9.764c0,6.06-3.704,9.722-8.795,9.722h-7.746v9.976h-1.935
+                    <path
+                        d="M142.709,35.271c5.091,0,8.795,3.326,8.795,9.764c0,6.06-3.704,9.722-8.795,9.722h-7.746v9.976h-1.935
                             V35.271H142.709z M142.709,52.82c3.745,0,6.816-2.397,6.816-7.827c0-5.429-2.947-7.869-6.816-7.869h-7.746V52.82H142.709z" />
-                                <path d="M151.841,64.732v-0.255l11.741-29.29h0.885l11.615,29.29v0.255h-2.062l-3.322-8.501H157.27l-3.324,8.501
+                    <path d="M151.841,64.732v-0.255l11.741-29.29h0.885l11.615,29.29v0.255h-2.062l-3.322-8.501H157.27l-3.324,8.501
                             H151.841z M164.005,38.68l-6.059,15.697h12.078L164.005,38.68z" />
-                                <polygon
-                                    points="193.551,35.271 195.655,35.271 195.655,35.564 186.479,52.484 186.479,64.732 184.459,64.732
+                    <polygon
+                        points="193.551,35.271 195.655,35.271 195.655,35.564 186.479,52.484 186.479,64.732 184.459,64.732
                             184.459,52.484 175.243,35.523 175.243,35.271 177.39,35.271 181.387,42.763 185.43,50.549 185.47,50.549 189.551,42.763 	" />
-                            </g>
-                        </g>
-                    </svg>
-                    <input type="checkbox" id="menuTrigger" name="menuTrigger" class="menuTrigger" />
-                    <div class="mobileMenuShortcut">
-                        <i class="fas fa-bars"></i>
-                    </div>
+                </g>
+            </g>
+        </svg></a>
+    <input type="checkbox" id="menuTrigger" name="menuTrigger" class="menuTrigger" />
+    <div class="mobileMenuShortcut">
+        <i class="fas fa-bars"></i>
+    </div>
 
-                    <div class="menuContents menuContentsMobile" id="menuContents">
-                        <div class="menuLinkParent">
-                            <a class="tomCL menuLink mobileOnly mobileCloseOpenNOJS nullTrans">
-                                <i class="fas fa-times nullTrans"></i>
-                            </a>
-                        </div>
-                        <div class="menuLinkParent">
-                            <a alt="FEATURES" class="menuLink" href="#modularInformationBlock">
-                                <span>FEATURES</span></a>
-                        </div>
-                        <div class="menuLinkParent">
-                            <a alt="DOCS" class="menuLink" target="blank_" href="http://docs.btcpayserver.org/">
-                                <span>DOCS</span></a>
-                        </div>
-                        <div class="menuLinkParent">
-                            <a alt="BLOG" class="menuLink" target="blank_" href="http://blog.btcpayserver.org/">
-                                <span>BLOG</span></a>
-                        </div>
-                        <div class="menuLinkParent">
-                            <a alt="GitHub" class="menuLink nullTrans" target="blank_"
-                                href="https://github.com/btcpayserver">
-                                <span class="nullTrans">GitHub</span></a>
-                        </div>
-                        <div class="menuLinkParent">
-                            <a alt="Donate" class="menuLink" href="donate">
-                                <span>Donate</span></a>
-                        </div>
-                        <div class="menuLinkParent">
-                            <a alt="COMMUNITY" class="menuLink" href="#communityCTA">
-                                <span>COMMUNITY</span></a>
-                        </div>
 
-                        <div class="menuLinkParent lnNomPar">
-                            <div id="lnNom" alt="Language" class="menuLink nullTrans"
-                                onclick="toggle_('#LanguagePicker')">
-                                <span class="nullTrans">
-                                    <i class="fas fa-globe nullTrans"></i>&nbsp;en&nbsp;<i
-                                        class="fas fa-caret-down nullTrans"></i>
-                                </span>
 
-                                <ul id="LanguagePicker">
-                                    <li><a href="/am_ET/">አማርኛ (et)</a></li><li><a href="/ar/">العربية</a></li><li><a href="/bg/">български</a></li><li><a href="/bs_BA/">Bosanski (ba)</a></li><li><a href="/ca_ES/">Català (es)</a></li><li><a href="/cs_CZ/">čeština (cz)</a></li><li><a href="/da_DK/">Dansk (dk)</a></li><li><a href="/de_DE/">Deutsch (de)</a></li><li><a href="/el_GR/">Ελληνικά (gr)</a></li><li><a href="/es_ES/">Español (es)</a></li><li><a href="/fa/">فارسی</a></li><li><a href="/fi_FI/">Suomi (fi)</a></li><li><a href="/fr_FR/">Français (fr)</a></li><li><a href="/he/">עברית</a></li><li><a href="/hi/">हिन्दी</a></li><li><a href="/hr/">Hrvatski</a></li><li><a href="/it_IT/">Italiano (it)</a></li><li><a href="/ja_JP/">日本語 (jp)</a></li><li><a href="/ko/">한국어</a></li><li><a href="/nl_NL/">Nederlands (nl)</a></li><li><a href="/pt_BR/">Português (br)</a></li><li><a href="/pt_PT/">Portuguese (pt)</a></li><li><a href="/ru_RU/">русский (ru)</a></li><li><a href="/sk_SK/">Slovenčina (sk)</a></li><li><a href="/sl_SI/">Slovenščina (si)</a></li><li><a href="/sr/">српски</a></li><li><a href="/sv/">Svenska</a></li><li><a href="/tr/">Türkçe</a></li><li><a href="/uk/">українська</a></li><li><a href="/zh-Hans/">中文</a></li>
-                                </ul>
 
-                            </div>
-                        </div>
 
-                    </div>
-                </div>
+    <div class="menuContents menuContentsMobile" id="menuContents">
+        <div class="menuContentsGrid">
+            <div class="menuLinkParent">
+                <a class="tomCL menuLink mobileOnly mobileCloseOpenNOJS nullTrans">
+                    <i class="fas fa-times nullTrans"></i>
+                </a>
             </div>
 
-            <svg class="top-men-bn-o" enable-background="new 0 0 100 7" height="7" viewBox="0 0 100 7" width="100"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="50.1831" x2="49.8171" y1="8.7402"
-                    y2="-1.7397">
-                    <stop offset="0" stop-color="#0c0068" stop-opacity="0"></stop>
-                    <stop stop-color="#0c0068" stop-opacity="0" offset=".5"></stop>
-                    <stop offset="1" stop-color="#0c0068" stop-opacity=".2"></stop>
-                </linearGradient>
-                <path d="m0 0h100v7h-100z" fill="url(#a)" />
-                <path d="m100 .916v-.916h-100v4c11.385-2 80.846-5.162 100-3.084z" fill="#fff" />
-            </svg>
+            <div class="menuLinkParent">
+                <a title="Docs" class="menuLink" target="blank_" href="http://docs.btcpayserver.org/">
+                    <span>Docs</span></a>
+            </div>
+            <div class="menuLinkParent">
+                <a title="API" class="menuLink" target="blank_" href="https://docs.btcpayserver.org/API/Greenfield/v1/">
+                    <span>API</span></a>
+            </div>
+            <div class="menuLinkParent">
+                <a title="Blog" class="menuLink" target="blank_" href="http://blog.btcpayserver.org/">
+                    <span>Blog</span></a>
+            </div>
+            <div class="menuLinkParent">
+                <a title="GitHub" class="menuLink nullTrans" target="blank_" href="https://github.com/btcpayserver">
+                    <span class="nullTrans">GitHub</span></a>
+            </div>
 
-            <div class="promoArea" id="promoArea">
-                <div class="promoDetails __fal-right">
-                    <h1>Start Accepting Bitcoin Payments With 0% Fees & No Third-party</h1>
-                    <p>BTCPay Server is a self-hosted, open-source cryptocurrency payment processor. It's secure, private, censorship-resistant and free.
-                        <br>
-                        <span id="infoButton01" style="display:none;">
-                            <i class="fas fa-info-circle"></i>
+
+
+            <div class="menuLinkParent mobileOnly">
+                <div class="menuLinkParent lnNomPar">
+
+                    <div id="lnNom" title="Language" class="menuLink nullTrans" onclick="toggle_('#LanguagePicker')">
+                        <span class="nullTrans">
+                            &nbsp;en&nbsp;<i class="fas fa-caret-down nullTrans"></i>
                         </span>
-                        <span id="furtherQuote"><br>Receive your bitcoin and altcoin payments without any fees or third-party involvement. You are your own payment processor. Funds go directly to your wallet; your private key is never required.</span>
-                    </p>
-                    <div class="prpmpLinkOrg stickLeft" dir="ltr">
 
-                        <a alt="LIVE DEMO" class="promoButton p-1" href="https://mainnet.demo.btcpayserver.org"
-                            target="blank_">
-                            <span>LIVE DEMO</span><input class="cu_" /></a>
-
-                        <a href="donate" class="con-do-ct-h __fal-right donationButton-non-button">&nbsp;DONATE&nbsp;<i
-                                class="fas fa-chevron-circle-right"></i>
-                        </a>
+                        <ul id="LanguagePicker">
+                            
+                        </ul>
 
                     </div>
                 </div>
-                <div class="modinvOuter" id="don_Par_sPa">
-                    <a href="https://btcpayserver.org/video/602.mp4" target="blank_"
-                        class="nonJavascriptMessage">Click here to open video in a new tab</a>
-
-                    <video poster="/img/vidph.svg" class="unfetteredVideoFrame" id="unfetteredVideoFrame" playsinline
-                        controls>
-                        
-                        <source src="https://btcpayserver.org/video/602.webm" type="video/webm">
-                        <source src="https://btcpayserver.org/video/602.m4v" type="video/m4v">
-                        <source src="https://btcpayserver.org/video/602.mp4" type="video/mp4">
-                    </video>
-
-                </div>
 
             </div>
+            <div class="menuLinkParent mobileOnly">
+                <a class="menuLink go_dark" href="#" data-theme-switch="dark">
+                        <svg class="-ab-trig-spec" xmlns="http://www.w3.org/2000/svg" width="8" height="8"
+                            viewBox="0 0 8 8">
+                            <path fill="transparent"
+                                d="M2.72 0c-1.58.53-2.72 2.02-2.72 3.78 0 2.21 1.79 4 4 4 1.76 0 3.25-1.14 3.78-2.72-.4.13-.83.22-1.28.22-2.21 0-4-1.79-4-4 0-.45.08-.88.22-1.28z">
+                            </path>
+                        </svg></a>
+                <a class="menuLink go_light" href="#" data-theme-switch="light">
+                    <svg class="-ab-trig-spec" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
+                        <path fill="transparent"
+                            d="M4 0c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm-2.5 1c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm5 0c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm-2.5 1c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-3.5 1.5c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm7 0c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm-6 2.5c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm5 0c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm-2.5 1c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5z">
+                        </path>
+                    </svg>
+                </a>
 
+
+            </div>
+            <div class="menuLinkParent mobileOnly">
+                <a title="Live Demo" class="button-light button-pri button" href="https://mainnet.demo.btcpayserver.org"
+                    target="blank_">Live Demo</a>
+            </div>
         </div>
-        <div class="pageContainer" id="pageContainer">
+    </div>
 
-            <div class="pageItemInfo whiteToGrey" id="modularInformationBlock" dir='ltr'>
-                <span style="display:none;" onclick="carousel('l')" class="carouselControl c_left">
-                    <i class="fas fa-chevron-left"></i>
+    <div class="desktop-only -inl-ti">
+        <a title="Live Demo" class="button-light button-pri button" href="https://mainnet.demo.btcpayserver.org"
+            target="blank_">Live Demo</a>&nbsp;&nbsp;&nbsp;
+        <div class="menuLinkParent lnNomPar">
+
+            <div id="lnNom" title="Language" class="menuLink nullTrans" onclick="toggle_('#LanguagePicker')">
+                <span class="nullTrans">
+                    &nbsp;en&nbsp;<i class="fas fa-caret-down nullTrans"></i>
                 </span>
-                <div class="choices_holder" id="choices_holder" style="display:unset;">
-                    <div id="choices_" class="noJSChoices tiledPayloads"
-                        style="display: flex;width: 80vw;max-width: 1200px;padding: 50px 0;margin: auto;flex-flow: row;flex-wrap: nowrap;flex-wrap: wrap;">
 
-                        <div alt="No fees" class="choice_ stickLeft" dir="ltr">
-                            <i class="n_iconography_ fab fa-creative-commons-zero"></i>
-                            <span>Receive bitcoin payments as a business or an individual. No fees. No third-party.</span>
-                            <div class="payloadDetail"></div>
-                            <div class="payloadItem_ PLI_noJS">
-                                <a alt="TRY OUT THE LIVE DEMO" class="modernLink featuresBlockLink"
-                                    href="https://mainnet.demo.btcpayserver.org/Account/Register">TRY OUT THE LIVE DEMO&nbsp;&nbsp;<i
-                                        class="fas fa-long-arrow-alt-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div alt="No middleman" class="choice_ stickLeft" dir="ltr">
-                            <i class="n_iconography_ fas fa-handshake"></i>
-                            <span>Free and fully-open source software. Self-hosted and non-custodial.</span>
-                            <div class="payloadDetail"></div>
-                            <div class="payloadItem_ PLI_noJS"></div>
-                        </div>
-                        <div alt="Deploy a Server" class="choice_ stickLeft" dir="ltr">
-                            <i class="n_iconography_ fas fa-server"></i>
-                            <span>Diverse deployment options. From VPS cloud to Raspberry Pi hosting</span>
-                            <div class="payloadDetail"></div>
-                            <div class="payloadItem_ PLI_noJS">
-                                <div class="payloadVideo">
-                                    <a alt="Click here to open video in a new tab" href="https://www.youtube-nocookie.com/embed/NjslXYvp8bk"
-                                        target="blank" class="ft-yt-vid-mod">Click here to open video in a new tab</a>
-                                </div>
-                                <ul>
-                                    <li>
-                                        <a alt="Choosing a Deployment Method" href="https://docs.btcpayserver.org/deployment/deployment"
-                                            target="blank_">Choosing a Deployment Method</a>
-                                    </li>
-                                    <li>
-                                        <a alt="Web Deployment"
-                                            href="https://docs.btcpayserver.org/deployment/lunanodewebdeployment"
-                                            target="blank_">Web Deployment</a>
-                                    </li>
-                                    <li>
-                                        <a alt="Azure Deployment" href="https://docs.btcpayserver.org/deployment/azuredeployment"
-                                            target="blank_">Azure Deployment</a>
-                                    </li>
-                                    <li>
-                                        <a alt="Docker Deployment" href="https://docs.btcpayserver.org/deployment/dockerdeployment"
-                                            target="blank_">Docker Deployment</a>
-                                    </li>
-                                    <li>
-                                        <a alt="Google Cloud Deployment"
-                                            href="https://docs.btcpayserver.org/deployment/googleclouddeployment"
-                                            target="blank_">Google Cloud Deployment</a>
-                                    </li>
-                                    <li>
-                                        <a alt="Manual Deployment" href="https://docs.btcpayserver.org/deployment/manualdeployment"
-                                            target="blank_">Manual Deployment</a>
-                                    </li>
-                                    <li>
-                                        <a alt="Hardware Deployment"
-                                            href="https://docs.btcpayserver.org/deployment/hardwaredeployment"
-                                            target="blank_">Hardware Deployment</a>
-                                    </li>
-                                    <li>
-                                        <a alt="Third-Party Hosting"
-                                            href="https://docs.btcpayserver.org/deployment/thirdpartyhosting"
-                                            target="blank_">Third-Party Hosting</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div alt="Not your keys" class="choice_ stickLeft" dir="ltr">
-                            <i class="n_iconography_ fas fa-key"></i>
-                            <span>Your keys - Your bitcoin. Private key never required for using BTCPay.</span>
-                            <div class="payloadDetail"></div>
-                            <div class="payloadItem_ PLI_noJS"></div>
-                        </div>
-                        <div alt="Lightning Network" class="choice_ stickLeft" dir="ltr">
-                            <i class="n_iconography_ fas fa-bolt"></i>
-                            <span class="inParagraphLink">
-                                Accept micro payments via the Lightning Network. Self-hosted Lightning Node.
-                            </span>
-                            <div class="payloadDetail"></div>
-                            <div class="payloadItem_ PLI_noJS">
-                                <a alt="Learn more" class="modernLink featuresBlockLink"
-                                    href="https://docs.btcpayserver.org/features/lightningnetwork"
-                                    target="blank_">Learn more&nbsp;&nbsp;<i class="fas fa-long-arrow-alt-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div alt="e-Commerce integrations" class="choice_ stickLeft" dir="ltr">
-                            <i class="n_iconography_ fas fa-shopping-cart"></i>
-                            <span>E-commerce integrations: WooCommerce, Drupal, Presta, Magento and more.</span>
-                            <div class="payloadDetail"></div>
-                            <div class="payloadItem_ PLI_noJS">
-                                <ul>
-                                    <li>
-                                        <a alt="WooCommerce" href="https://docs.btcpayserver.org/integrations/woocommerce"
-                                            target="black_">WooCommerce</a>
-                                    </li>
-                                    <li>
-                                        <a alt="Drupal" href="https://docs.btcpayserver.org/integrations/drupal"
-                                            target="black_">Drupal</a>
-                                    </li>
-                                    <li>
-                                        <a alt="Magento" href="https://docs.btcpayserver.org/integrations/magento"
-                                            target="black_">Magento</a>
-                                    </li>
-                                    <li>
-                                        <a alt="PrestaShop" href="https://docs.btcpayserver.org/integrations/prestashop"
-                                            target="black_">PrestaShop</a>
-                                    </li>
-                                    <li>
-                                        <a alt="Custom Integration"
-                                            href="https://docs.btcpayserver.org/integrations/customintegration"
-                                            target="black_">Custom Integration</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div alt="Enhanced Privacy & Security" class="choice_ stickLeft" dir="ltr">
-                            <i class="n_iconography_ fas fa-mask"></i>
-                            <span>Maximum privacy for you and your customers. Running a full node. No AML/KYC.</span>
-                            <div class="payloadDetail"></div>
-                            <div class="payloadItem_ PLI_noJS"></div>
-                        </div>
-                        <div alt="Payment Buttons" class="choice_ stickLeft" dir="ltr">
-                            <i class="n_iconography_ fas fa-vector-square"></i>
-                            <span>Easily add payment buttons for tips and donations on your website.</span>
-                            <div class="payloadDetail"></div>
-                            <div class="payloadItem_ PLI_noJS">
-                                <div class="payloadVideo">
-                                    <a alt="Click here to open video in a new tab" href="https://www.youtube-nocookie.com/embed/MIWGvl6_WzI"
-                                        target="blank" class="ft-yt-vid-mod">Click here to open video in a new tab</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div alt="Point-Of-Sale" class="choice_ stickLeft" dir="ltr">
-                            <i class="n_iconography_ fas fa-file-invoice-dollar"></i>
-                            <span>Get paid in person or online with a built-in web Point of Sale app.</span>
-                            <div class="payloadDetail"></div>
-                            <div class="payloadItem_ PLI_noJS">
-                                <div class="payloadVideo">
-                                    <a alt="Click here to open video in a new tab" href="https://www.youtube-nocookie.com/embed/Mz4uajz0z9Y"
-                                        target="blank" class="ft-yt-vid-mod">Click here to open video in a new tab</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div alt="Accounting" class="choice_ stickLeft" dir="ltr">
-                            <i class="n_iconography_ fas fa-money-check"></i>
-                            <span>Accounting made easy with Quick Book integration and invoice export.</span>
-                            <div class="payloadDetail"></div>
-                            <div class="payloadItem_ PLI_noJS">
-                                <div class="payloadVideo">
-                                    <a alt="Click here to open video in a new tab" href="https://www.youtube-nocookie.com/embed/srgwL9ozg6c"
-                                        target="blank" class="ft-yt-vid-mod">Click here to open video in a new tab</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div alt="Process payments for others" class="choice_ stickLeft" dir="ltr">
-                            <i class="n_iconography_ fas fa-comments-dollar"></i>
-                            <span>Complete technology stack that allows you to become a payment processor for yourself or others.</span>
-                            <div class="payloadDetail"></div>
-                            <div class="payloadItem_ PLI_noJS">
-                                <a alt="Learn more" class="modernLink featuresBlockLink"
-                                    href="https://docs.btcpayserver.org/deployment/thirdpartyhosting">Learn more&nbsp;&nbsp;<i
-                                        class="fas fa-long-arrow-alt-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div alt="Altcoin Support" class="choice_ stickLeft" dir="ltr">
-                            <i class="n_iconography_ fas fa-coins"></i>
-                            <span>Opt-in integrations for several altcoins, maintained by their respective communities.</span>
-                            <div class="payloadDetail"></div>
-                            <div class="payloadItem_ PLI_noJS">
-                                <ul>
-                                    <li class="nullTrans">Bitcore (BTX)</li>
-                                    <li class="nullTrans">Dash (DASH)</li>
-                                    <li class="nullTrans">Dogecoin (DOGE)</li>
-                                    <li class="nullTrans">Feathercoin (FTC)</li>
-                                    <li class="nullTrans">Groestlcoin (GRS)</li>
-                                    <li class="nullTrans">Litecoin (LTC)</li>
-                                    <li class="nullTrans">Monacoin (MONA)</li>
-                                    <li class="nullTrans">Polis (POLIS)</li>
-                                    <li class="nullTrans">Viacoin (VIA)</li>
-                                    <li>BGold (BTG) (also known as Bitcoin Gold)</li>
-                                </ul>
-                            </div>
-                        </div>
+                <ul id="LanguagePicker">
+                    
+                </ul>
 
-                    </div>
-                </div>
-                <span style="display:none;" onclick="carousel('r')" class="carouselControl c_right">
-                    <i class="fas fa-chevron-left"></i>
-                </span>
             </div>
+        </div>
 
-            <svg version="1.1" class="h-div h-divider_end_white_plain" style="z-index: 0;"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="1000px" height="150px" viewBox="0 0 1000 150" enable-background="new 0 0 1000 150"
-                xml:space="preserve">
-                <g id="Layer_3">
-                    <g>
 
-                        <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-1353.5024" y1="638.6807"
-                            x2="-1353.5024" y2="637.9941" gradientTransform="matrix(1 0 0 1 1848 -551)">
-                            <stop offset="0" style="stop-color:#FFFFFF" />
-                            <stop offset="0.9463" style="stop-color:#F2F2F2" />
-                        </linearGradient>
-                        <path fill="url(#SVGID_1_)"
-                            d="M494.5,87.332C491.975,88.533,497.016,86.152,494.5,87.332L494.5,87.332z" />
+        <div class="menuLinkParent">
+            <a class="menuLink go_dark" href="#" data-theme-switch="dark">
+                    <svg class="-ab-trig-spec" xmlns="http://www.w3.org/2000/svg" width="8" height="8"
+                        viewBox="0 0 8 8">
+                        <path fill="transparent"
+                            d="M2.72 0c-1.58.53-2.72 2.02-2.72 3.78 0 2.21 1.79 4 4 4 1.76 0 3.25-1.14 3.78-2.72-.4.13-.83.22-1.28.22-2.21 0-4-1.79-4-4 0-.45.08-.88.22-1.28z">
+                        </path>
+                    </svg></a>
+            <a class="menuLink go_light" href="#" data-theme-switch="light">
+                <svg class="-ab-trig-spec" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
+                    <path fill="transparent"
+                        d="M4 0c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm-2.5 1c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm5 0c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm-2.5 1c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-3.5 1.5c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm7 0c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm-6 2.5c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm5 0c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm-2.5 1c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5z">
+                    </path>
+                </svg>
+            </a>
+        </div>
 
-                        <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="-1338.8154" y1="692.4453"
-                            x2="-1341.4965" y2="538.8505" gradientTransform="matrix(1 0 0 1 1848 -551)">
-                            <stop offset="0" style="stop-color:#FFFFFF" />
-                            <stop offset="0.97" style="stop-color:#F2F2F2" />
-                        </linearGradient>
-                        <path fill="url(#SVGID_2_)" d="M1061.25-2.519H-45.25v152.205c0,0,16.31-1.021,45.5-6.332v3.041
-			c100.009-1.416,295.25,18.959,502.25-58.041c239.038-88.916,411.059-76.864,510.75-75.998v13.125c30.959-4.625,48-4.625,48-4.625
-			V-2.519z" />
-                    </g>
-                </g>
-            </svg>
 
-            <div class="pageItem tr-y-150">
-                <div class="blockTrioMP" id="prominentTrioBlock">
-                    <div class="trioMPBlockItem">
-                        <h3>DEMO</h3>
-                        <a alt="TRY IT" href="https://mainnet.demo.btcpayserver.org/Account/Register" target="blank_">
-                            <div class="img_" style="background-image: url(/img/demo2-01.png);"></div>
-                        </a>
-                        <p class="inParagraphLink">Have a go at the demo server on <a alt="demo server on Mainnet"
-                                href="https://mainnet.demo.btcpayserver.org/" target="blank_">Mainnet</a>  or  <a
-                                alt="Testnet" href="https://testnet.demo.btcpayserver.org/" target="blank_">Testnet</a>
-                            <br> Also try the e-commerce demo  <a alt="Store" href="https://store.btcpayserver.org/"
-                                target="blank_">Store</a>&nbsp;
-                            <a alt="Point of Sale"
-                                href="https://mainnet.demo.btcpayserver.org/apps/3utBTfSKkW4gK7aQMd2hW5Bh9Fpa/pos"
-                                target="blank_">Point of Sale App</a>  or a  <a alt="Payment Button"
-                                href="https://store.demo.btcpayserver.org/index.php/payment-button-demo/"
-                                target="blank_">Payment Button</a>
-                        </p>
-                        <a alt="TRY IT" class="modernLink" href="https://mainnet.demo.btcpayserver.org/Account/Register"
-                            target="blank_">TRY IT&nbsp;&nbsp;<i class="fas fa-long-arrow-alt-right"></i>
-                        </a>
-                    </div>
-                    <div class="trioMPBlockItem">
-                        <h3>DOCS</h3>
-                        <a alt="READ DOCS" href="http://docs.btcpayserver.org/" target="blank_">
-                            <div class="img_" style="background-image: url(/img/docs2-01.png);"></div>
-                        </a>
-                        <p>Need help using BTCPay? Our extensive user-documentation covers everything to get you started or help sort more technical issues.</p>
-                        <a alt="READ DOCS" class="modernLink" href="http://docs.btcpayserver.org/"
-                            target="blank_">READ DOCS&nbsp;&nbsp;<i class="fas fa-long-arrow-alt-right"></i>
-                        </a>
-                    </div>
-                    <div class="trioMPBlockItem">
-                        <h3 class="nullTrans">GitHub</h3>
-                        <a alt="CONTRIBUTE" href="https://github.com/btcpayserver" target="blank_">
-                            <div class="img_" style="background-image: url(/img/git-01.png);"></div>
-                        </a>
-                        <p>Having a technical question not covered in docs or want to help improve the code? Help us out on GitHub.</p>
-                        <a alt="CONTRIBUTE" class="modernLink" href="https://github.com/btcpayserver"
-                            target="blank_">Contribute&nbsp;&nbsp;<i class="fas fa-long-arrow-alt-right"></i>
-                        </a>
-                    </div>
-                </div>
+    </div>
+</div>
+
+			</div>
+
+			<div class="promoArea" id="promoArea">
+				<div class="promoDetails __fal-right">
+					<h1 title="Start Accepting Bitcoin Payments With 0% Fees & No Third-party">Start Accepting Bitcoin Payments With 0% Fees & No Third-party</h1>
+          <p>BTCPay Server is a self-hosted, open-source cryptocurrency payment processor. It's secure, private, censorship-resistant and free.</p>
+
+					<div class="prpmpLinkOrg stickLeft" dir="ltr">
+						<a title="Live Demo" class="button-pri button" href="#watchVideo" target="blank_">Learn more&nbsp;&nbsp;<i
+								class="fas fa-play-circle"></i>
+            </a>
+
+						<a href="/donate" class="button-sec button">Donate&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>
+						</a>
+					</div>
+				</div>
+				<div class="pos-rel">
+					<div class="dotted-back dots1"></div>
+
+					<div class="hero-artwork">
+						<img alt="Server" id="server-image" src="/img/server-light.png" class="i-a" />
+						<img alt="Invoice" id="invoice-image" src="/img/invoice-light.svg" class="i-b" />
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="pageContainer __fal-right" id="pageContainer">
+			<div class="pageItem">
+				<div class="blockTrioMP">
+					<div class="trioMPBlockItem">
+						<p class="inParagraphLink">Launch a server in a cloud, your own hardware device or use an existing host.
+						</p>
+					</div>
+
+					<div class="trioMPBlockItem">
+						<p>Connect your e-commerce store or use one of  many apps to get paid.</p>
+					</div>
+
+					<div class="trioMPBlockItem">
+						<p>Funds arrive directly to your connected wallet.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="features-section-parent">
+				<div class="features-section __fal-right">
+					<ul>
+						<li>
+							<input class="selector-no-js" name="z" type="radio" checked />
+							<div class="preview-selector-">
+								<h3>Essential Apps Built-in</h3>
+							</div>
+
+							<div class="payload-no-js">
+								<div class="payload-inner-aligner">
+									<p>Features you use the most are baked right into every instance so you can hit the ground running.</p>
+									<p>Create a Point-of-Sale app for your store, easily embed a tipping button on your website, send a payment link to a client across the globe, or launch a crowdfunding campaign to raise funds for your cause</p>
+									<a title="Learn more" class="modernLink featuresBlockLink"
+										href="https://docs.btcpayserver.org/Apps/" target="blank_">Learn more&nbsp;&nbsp;<i
+											class="fas fa-long-arrow-alt-right"></i>
+									</a>
+								</div>
+							</div>
+						</li>
+
+						<li>
+							<input class="selector-no-js" name="z" type="radio" />
+							<div class="preview-selector-">
+								<h3>Great for Invoicing and accounting</h3>
+							</div>
+
+							<div class="payload-no-js">
+								<div class="payload-inner-aligner">
+									<p>Generate and manage invoices with ease.</p>
+									<p>Get notified when they get paid. Export your invoices in different format for smoother bookkeeping.</p>
+									<a title="Learn more" class="modernLink featuresBlockLink"
+										href="https://docs.btcpayserver.org/Invoices/" target="blank_">Learn more&nbsp;&nbsp;<i
+											class="fas fa-long-arrow-alt-right"></i>
+									</a>
+								</div>
+							</div>
+						</li>
+
+						<!-- condensed -->
+						<li>
+							<input class="selector-no-js" name="z" type="radio" />
+							<div class="preview-selector-">
+								<h3>Native Wallet Management</h3>
+							</div>
+
+							<div class="payload-no-js">
+								<div class="payload-inner-aligner">
+									<p>Manage your incoming and outgoing funds with a built-in wallet that has hardware wallet support.</p>
+								</div>
+							</div>
+						</li>
+						<!-- condensed -->
+
+						<li>
+							<input class="selector-no-js" name="z" type="radio" />
+							<div class="preview-selector-">
+								<h3>Self-host or use a shared server</h3>
+							</div>
+
+							<div class="payload-no-js">
+								<div class="payload-inner-aligner">
+									<p>Use a shared server if you're not tech savvy, or deploy your  own instance on cloud servers or hardware devices.</p>
+									<p>By sharing your server you can support friends or your local community.</p>
+								</div>
+							</div>
+						</li>
+
+						<li>
+							<input class="selector-no-js" name="z" type="radio" />
+							<div class="preview-selector-">
+								<h3>Automation via the API</h3>
+							</div>
+
+							<div class="payload-no-js">
+								<div class="payload-inner-aligner">
+									<p>Manage your BTCPay Server (e.g. stores, invoices, users), automate your workflows and control access with our API.</p>
+									<a title="Learn more" class="modernLink featuresBlockLink"
+										href="https://docs.btcpayserver.org/API/Greenfield/v1/" target="blank_">Learn more&nbsp;&nbsp;<i
+											class="fas fa-long-arrow-alt-right"></i>
+									</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="page-item case-studies -bg-grey-l" id="caseStudies">
+				<h2>Case Studies</h2>
+        <ul>
+          <li>
+            <a href="https://blog.btcpayserver.org/case-study-bitcoin-people/" target="_blank">
+              <img src="/img/case-studies/bitcoin-people.jpg" alt="BTCPay Server Bitcoin People Case Study" />
+            </a>
+            <h3>Bitcoin People</h3>
+            <p>Bitcoin People built a mobile app on top of BTCPay's API to scale bitcoin to 270 merchants.</p>
+            <div class="buttons">
+              <a href="https://blog.btcpayserver.org/case-study-bitcoin-people/" target="_blank">View Case Study</a>
+              <a href="/case-studies/BitcoinPeople2024.pdf" target="_blank">Download PDF</a>
             </div>
-            <div class="pageItem" id="communityCTA">
-                <div class="pageItemInnerSpacer">
-                    <div class="pageItemTextContent floatContentLeft">
-                        <h2>JOIN THE COMMUNITY</h2>
-                        <p>BTCPay Server is an open-source project, not a company. We rely on a network of diverse contributors and users to provide support for numerous use-cases. Join us in improving, learning, and building BTCPay.</p>
-                        <div class="linkOrg-3">
-                            <a alt="Community on Mattermost" class="modernLink_Cluster"
-                                href="http://chat.btcpayserver.org/" target="blank_">
-
-                                <svg class="svgPseudoIcon mattermost" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="500px"
-                                    height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500"
-                                    xml:space="preserve">
-                                    <g>
-                                        <g>
-                                            <path fill-rule="evenodd" clip-rule="evenodd" fill="var(--sunkist-lime)" d="M254.59,68.828c-8.209,9.706-15.952,18.956-23.855,28.066
-			c-0.814,0.938-2.55,1.194-3.915,1.521c-51.904,12.428-87.262,43.134-100.633,95.36c-11.756,45.912,0.954,86.653,32.874,121.143
-			c23.98,25.91,54.313,40.037,89.327,43.218c66.303,6.02,128.843-35.817,142.263-103.028c8.302-41.577-2.922-78.463-29.818-110.825
-			c-1.644-1.977-2.428-3.856-2.512-6.442c-0.355-10.868-0.962-21.729-1.467-32.593c-0.021-0.442,0.068-0.891,0.115-1.426
-			c53.834,36.244,94.89,120.225,63.807,207.512c-31.639,88.844-127.862,138.764-218.979,113.458
-			c-92.786-25.77-148.086-117.626-129.842-209.586C91.945,114.449,181.703,65.178,254.59,68.828z" />
-                                            <path fill-rule="evenodd" clip-rule="evenodd" fill="var(--sunkist-lime)"
-                                                d="M311.691,223.965c-0.112,22.851-15.915,42.348-35.916,48.356
-			c-24.229,7.278-60.492-6.271-66.571-38.327c-3.294-17.378,1.588-31.912,12.108-46.557c33.578-46.746,78.271-97.092,78.271-97.092
-			c1.398-1.552,3.789-3.53,5.997-2.794c2.294,0.766,3.163,2.134,3.375,5.999C308.955,93.551,312.074,145.791,311.691,223.965z" />
-                                        </g>
-                                    </g>
-                                </svg>
-
-
-
-
-
-
-                                MATTERMOST</a>
-                            <a alt="Community on Github" class="modernLink_Cluster nullTrans"
-                                href="https://github.com/btcpayserver" target="blank_">
-                                <i class="fab fa-github"></i>GitHub</a>
-                            <a alt="TELEGRAM" class="modernLink_Cluster" href="https://t.me/btcpayserver" target="blank_">
-                                <i class="fab fa-telegram"></i>TELEGRAM</a>
-                        </div>
-                    </div>
-                    <img class="floatContentRight" src="/img/community5.png" />
-                </div>
+          </li>
+          <li>
+            <a href="https://blog.btcpayserver.org/case-study-bitcoin-jungle-cr/" target="_blank">
+              <img src="/img/case-studies/bitcoin-jungle.jpg" alt="BTCPay Server Bitcoin Jungle Case Study" />
+            </a>
+            <h3>Bitcoin Jungle</h3>
+            <p>Bitcoin Jungle enables 200+ stores in Costa Rica to embrace Bitcoin.</p>
+            <div class="buttons">
+              <a href="https://blog.btcpayserver.org/case-study-bitcoin-jungle-cr/" target="_blank">View Case Study</a>
+              <a href="/case-studies/BitcoinJungleCR2023.pdf" target="_blank">Download PDF</a>
             </div>
+          </li>
+          <li>
+            <a href="https://blog.btcpayserver.org/case-study-hodlhodl-2023/" target="_blank">
+              <img src="/img/case-studies/hodlhodl.jpg" alt="BTCPay Server Hodl Hodl Study" />
+            </a>
+            <h3>Hodl Hodl</h3>
+            <p>How Hodl Hodl used BTCPay to accept bitcoin payments at a conference.</p>
+            <div class="buttons">
+              <a href="https://blog.btcpayserver.org/case-study-hodlhodl-2023/" target="_blank">View Case Study</a>
+              <a href="/case-studies/hodlhodl2023.pdf" target="_blank">Download PDF</a>
+            </div>
+          </li>
+        </ul>
+        <p>
+          <a title="View All Case Studies" class="modernLink featuresBlockLink"
+          href="https://blog.btcpayserver.org/category/case-studies/" target="blank_">View All Case Studies&nbsp;&nbsp;<i
+            class="fas fa-long-arrow-alt-right"></i>
+          </a>
+        </p>
+ 			</div>
 
-            <svg version="1.1" class="h-div h-divider_start5" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1000px" height="127.5px"
-                viewBox="0 0 1000 127.5" enable-background="new 0 0 1000 127.5" xml:space="preserve">
-                <g>
+			<div class="page-item-free -bg-grey" id="po0">
+				<div class="pageItemInnerSpacer -ta-c">
+					<h2 class="desktop-only">E-Commerce Integrations</h2>
 
-                    <linearGradient id="SVG5454ID_1_" gradientUnits="userSpaceOnUse" x1="-1513.5029" y1="599.4219"
-                        x2="-1513.5029" y2="598.7344" gradientTransform="matrix(-1 0 0 -1 -1008 635.2422)">
-                        <stop offset="0" style="stop-color:#0CA626" />
-                        <stop offset="0.2647" style="stop-color:#0CB526" />
-                    </linearGradient>
-                    <path fill="url(#SVG5454ID_1_)"
-                        d="M505.5,36.17C508.025,34.969,502.984,37.348,505.5,36.17L505.5,36.17z" />
-                    <path class="d-g"
-                        d="M0,127.5h1000V0C842.5,48.25,666.5-35.678,484.5,26.25C164.5,134.879,65.75,91.25,0,79.553V127.5z" />
-                </g>
-                <path opacity="0.15" fill="#005D00" enable-background="new    " d="M912.364,70.256c-0.933-6.506,60.244-44.572,63.965-42.789
-		c3.722,1.783,4.384,83.381,0,85.582C971.946,115.25,913.297,76.762,912.364,70.256z" />
-                <path id="smtri2" fill="#F2F2F2" d="M40.75,53.764C40.5,58.75,20,72.27,15.25,69.26s-2.75-26.695,0-29.853S41,48.777,40.75,53.764z
-		" />
-                <path id="smtri4" opacity="0.15" fill="#1AB81A" enable-background="new    " d="M921.113,43.107
-		c-0.113-3.857,23.594-17.424,25.74-15.641s2.854,29.277,0,31.28S921.227,46.965,921.113,43.107z" />
-                <path id="smtri4_1_" opacity="0.15" fill="#1A001A" enable-background="new    " d="M884.113,98.107
-		c-0.113-3.857,23.594-17.424,25.74-15.641s2.854,29.277,0,31.28S884.227,101.965,884.113,98.107z" />
-                </g>
-            </svg>
+					<div class="integrations-grid">
 
-            <div class="blockGreenFoot">
-<div class="footerBlock">
+						<a class="svg-link opencart" href="https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=44269">
+							<span class="opencart">OpenCart</span>
+						</a>
+
+						<a class="svg-link api" href="https://docs.btcpayserver.org/API/Greenfield/v1/">
+						<span class="api">API</span>
+						</a>
+
+						<a class="svg-link wp" href="https://docs.btcpayserver.org/FAQ/FAQ-Apps/#how-to-integrate-woocommerce-store-into-a-btcpay-crowdfund-app">
+						<span class="wp">WordPress</span>
+						</a>
+
+						<a class="svg-link woo" href="https://wordpress.org/plugins/btcpay-greenfield-for-woocommerce/">
+						<span class="woo">WooCommerce</span>
+						</a>
+
+						<a class="svg-link drupal" href="https://docs.btcpayserver.org/Drupal/">
+						<span class="drupal">Drupal</span>
+						</a>
+
+						<a class="svg-link shopify" href="https://docs.btcpayserver.org/Shopify/">
+							<span class="shopify">Shopify</span>
+						</a>
+
+						<a class="svg-link joomla" href="https://extensions.joomla.org/extension/vm-payment-btcpay-for-virtuemart/">
+							<span class="joomla">Joomla VirtueMart</span>
+						</a>
+
+						<a class="svg-link nopcommerce" href="https://www.nopcommerce.com/en/btcpay-server-accept-bitcoin-payments">
+							<span class="nopcommerce">NopCommerce</span>
+						</a>
+
+						<a class="svg-link grandnode" href="https://grandnode.com/btcpay-server-accept-bitcoin-payments">
+							<span class="grandnode">GrandNode</span>
+						</a>
+
+						<a class="svg-link smartstore" href="https://docs.btcpayserver.org/Smartstore/">
+							<span class="smartstore">SmartStore</span>
+							</a>
+
+            			<a class="svg-link custom" href="https://docs.btcpayserver.org/CustomIntegration/">
+							<span class="custom">Custom Integration</span>
+						</a>
+
+						<a class="svg-link whmcs" href="https://marketplace.whmcs.com/product/7348-accept-bitcoin-payments-with-ease-and-no-fees-btcpay-server-for-whmcs">
+							<span class="whmcs">WHMCS</span>
+						</a>
+
+						<a class="svg-link mag" href="https://docs.btcpayserver.org/Magento/"><span class="mag">Magento</span></a>
+
+						<a class="svg-link presta" href="https://docs.btcpayserver.org/PrestaShop/">
+						<span class="presta">PrestaShop</span>
+						</a>
+
+						<a class="svg-link zapier" href="https://zapier.com/apps/btcpay-server/integrations"><span class="zapier">Zapier</span></a>
+
+					</div>
+
+          <h2 class="mobile-only">E-Commerce Integrations</h2>
+				</div>
+			</div>
+
+			<div class="page-item  video-holder-watch-video -bg-grey-l" id="watchVideo">
+				<h3>What is BTCPay Server?</h3>
+				<figure>
+					<iframe class="unfetteredVideoFrame" src="https://www.youtube-nocookie.com/embed/XHj7EVUunJ4" title="What is BTCPay Server"></iframe>
+				</figure>
+ 			</div>
+
+			<div class="page-item  video-holder-watch-video -bg-grey-l">
+				<h3>BTCPay Server for local communities</h3>
+				<figure>
+					<iframe class="unfetteredVideoFrame" src="https://www.youtube-nocookie.com/embed/9n81qnzlPf8" title="BTCPay Server for local communities"></iframe>
+				</figure>
+			</div>
+
+			<div class="page-item-free -bg-grey">
+				<div class="pageItemInnerSpacer">
+					<div class="pageItemTextContent floatContentLeft">
+						<h2>Docs</h2>
+						<p>Need help using BTCPay? Our extensive user-documentation covers everything to get you started or help sort more technical issues.</p>
+						<a title="Read Docs" class="modernLink" href="http://docs.btcpayserver.org/" target="blank_">Read Docs&nbsp;&nbsp;<i
+								class="fas fa-long-arrow-alt-right"></i>
+						</a>
+
+						<p>Having a technical question not covered in docs or want to help improve the code? Help us out on GitHub.</p>
+						<a title="Contribute" class="modernLink" href="https://github.com/btcpayserver"
+							target="blank_">Contribute&nbsp;&nbsp;<i class="fas fa-long-arrow-alt-right"></i>
+						</a>
+					</div>
+
+					<img class="floatContentRight standalone __fal-right" src="/img/docs.png" alt="Screenshot - docs.png">
+				</div>
+			</div>
+
+			<div class="pageItem" id="communityCTA">
+				<div class="pageItemInnerSpacer -ta-c">
+					<div class="pageItemTextContent floatContentLeft">
+						<h2>Join The Community</h2>
+						<p>BTCPay Server is an open-source project, not a company. We rely on a network of diverse contributors and users to provide support for numerous use-cases. Join us in improving, learning, and building BTCPay.</p>
+						<div class="linkOrg-3 -ta-c">
+							<a title="Community on Mattermost" class="modernLink_Cluster" href="http://chat.btcpayserver.org/"
+								target="blank_">
+								<svg class="svgPseudoIcon mattermost" enable-background="new 0 0 500 500" height="500"
+									viewBox="0 0 500 500" width="500" xmlns="http://www.w3.org/2000/svg">
+									<path fill="var(--dark-grey)"
+										d="m256.258 2.758c-11.193 13.246-21.75 25.869-32.526 38.301-1.11 1.28-3.477 1.629-5.339 2.076-70.773 16.96-118.985 58.864-137.218 130.136-16.03 62.655 1.301 118.252 44.825 165.322 32.698 35.359 74.059 54.639 121.803 58.979 90.408 8.216 175.685-48.88 193.982-140.602 11.32-56.738-3.984-107.076-40.658-151.239-2.241-2.698-3.311-5.263-3.426-8.792-.484-14.831-1.311-29.653-2.001-44.479-.028-.603.094-1.216.157-1.946 73.405 49.462 129.388 164.069 87.006 283.188-43.143 121.244-174.348 189.369-298.59 154.835-126.519-35.168-201.923-160.523-177.046-286.019 27.257-137.502 149.647-204.741 249.031-199.76z" />
+									<path fill="var(--dark-grey)"
+										d="m334.119 214.47c-.152 31.185-21.701 57.792-48.973 65.99-33.039 9.935-82.484-8.558-90.773-52.303-4.492-23.715 2.165-43.55 16.509-63.536 45.787-63.793 106.727-132.5 106.727-132.5 1.905-2.118 5.166-4.817 8.177-3.813 3.128 1.046 4.313 2.913 4.603 8.187 0 .002 4.253 71.293 3.73 177.975z" />
+								</svg>
+								Mattermost</a>
+							<a title="Community on GitHub" class="modernLink_Cluster nullTrans" href="https://github.com/btcpayserver"
+								target="blank_">
+								<i class="fab fa-github"></i>GitHub</a>
+							<a title="Telegram" class="modernLink_Cluster" href="https://t.me/btcpayserver" target="blank_">
+								<i class="fab fa-telegram"></i>Telegram</a>
+
+							<a title="Twitter" class="modernLink_Cluster" href="https://twitter.com/BtcpayServer" target="blank_">
+								<i class="fab fa-twitter"></i>Twitter</a>
+
+							<a title="Youtube" class="modernLink_Cluster"
+								href="https://www.youtube.com/channel/UCpG9WL6TJuoNfFVkaDMp9ug" target="blank_">
+								<i class="fab fa-youtube"></i>YouTube</a>
+						</div>
+          </div>
+        </div>
+      </div>
+      <div class="pageItem" id="contributors">
+        <div class="pageItemInnerSpacer -ta-c">
+          <div class="pageItemTextContent floatContentLeft">
+						<div class="donation-type">
+							<h2>Contributors</h2>
+							<div class="individual-grid" id="donGr" style="    max-height: 50vh;overflow: auto; margin:0 auto auto">
+								
+            <a href="https://github.com/NicolasDorier" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/3020646?v=4)"></div>
+              <span class="in-nom">NicolasDorier</span>
+            </a>
+            <a href="https://github.com/Kukks" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/1818366?v=4)"></div>
+              <span class="in-nom">Kukks</span>
+            </a>
+            <a href="https://github.com/dennisreimann" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/886?v=4)"></div>
+              <span class="in-nom">dennisreimann</span>
+            </a>
+            <a href="https://github.com/pavlenex" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/36959754?v=4)"></div>
+              <span class="in-nom">pavlenex</span>
+            </a>
+            <a href="https://github.com/rockstardev" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/5191402?v=4)"></div>
+              <span class="in-nom">rockstardev</span>
+            </a>
+            <a href="https://github.com/britttttk" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/39231115?v=4)"></div>
+              <span class="in-nom">britttttk</span>
+            </a>
+            <a href="https://github.com/bolatovumar" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/1934678?v=4)"></div>
+              <span class="in-nom">bolatovumar</span>
+            </a>
+            <a href="https://github.com/Bas02" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/102448109?v=4)"></div>
+              <span class="in-nom">Bas02</span>
+            </a>
+            <a href="https://github.com/Zaxounette" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/51208677?v=4)"></div>
+              <span class="in-nom">Zaxounette</span>
+            </a>
+            <a href="https://github.com/vswee" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/2403100?v=4)"></div>
+              <span class="in-nom">vswee</span>
+            </a>
+            <a href="https://github.com/ndeet" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/1136761?v=4)"></div>
+              <span class="in-nom">ndeet</span>
+            </a>
+            <a href="https://github.com/dstrukt" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/6250771?v=4)"></div>
+              <span class="in-nom">dstrukt</span>
+            </a>
+            <a href="https://github.com/JeffVandrewJr" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/43861226?v=4)"></div>
+              <span class="in-nom">JeffVandrewJr</span>
+            </a>
+            <a href="https://github.com/normandmickey" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/2455566?v=4)"></div>
+              <span class="in-nom">normandmickey</span>
+            </a>
+            <a href="https://github.com/woutersamaey" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/71019?v=4)"></div>
+              <span class="in-nom">woutersamaey</span>
+            </a>
+            <a href="https://github.com/sipsorcery" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/197660?v=4)"></div>
+              <span class="in-nom">sipsorcery</span>
+            </a>
+            <a href="https://github.com/apotdevin" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/31413433?v=4)"></div>
+              <span class="in-nom">apotdevin</span>
+            </a>
+            <a href="https://github.com/gruve-p" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/11212268?v=4)"></div>
+              <span class="in-nom">gruve-p</span>
+            </a>
+            <a href="https://github.com/junderw" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/11246316?v=4)"></div>
+              <span class="in-nom">junderw</span>
+            </a>
+            <a href="https://github.com/maltokyo" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/1388507?v=4)"></div>
+              <span class="in-nom">maltokyo</span>
+            </a>
+            <a href="https://github.com/hypergori" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/1418015?v=4)"></div>
+              <span class="in-nom">hypergori</span>
+            </a>
+            <a href="https://github.com/mariodian" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/3636406?v=4)"></div>
+              <span class="in-nom">mariodian</span>
+            </a>
+            <a href="https://github.com/raduButucelea23" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/44141337?v=4)"></div>
+              <span class="in-nom">raduButucelea23</span>
+            </a>
+            <a href="https://github.com/satwo" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/4956763?v=4)"></div>
+              <span class="in-nom">satwo</span>
+            </a>
+            <a href="https://github.com/Eskyee" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/30862925?v=4)"></div>
+              <span class="in-nom">Eskyee</span>
+            </a>
+            <a href="https://github.com/TChukwuleta" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/47084273?v=4)"></div>
+              <span class="in-nom">TChukwuleta</span>
+            </a>
+            <a href="https://github.com/BitcoinMitchell" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/27309467?v=4)"></div>
+              <span class="in-nom">BitcoinMitchell</span>
+            </a>
+            <a href="https://github.com/Rampelflik" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/43671869?v=4)"></div>
+              <span class="in-nom">Rampelflik</span>
+            </a>
+            <a href="https://github.com/radWorx" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/27673545?v=4)"></div>
+              <span class="in-nom">radWorx</span>
+            </a>
+            <a href="https://github.com/l33d4n" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/8020386?v=4)"></div>
+              <span class="in-nom">l33d4n</span>
+            </a>
+            <a href="https://github.com/rsandrade" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/744812?v=4)"></div>
+              <span class="in-nom">rsandrade</span>
+            </a>
+            <a href="https://github.com/snogcel" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/7192646?v=4)"></div>
+              <span class="in-nom">snogcel</span>
+            </a>
+            <a href="https://github.com/RiccardoMasutti" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/46527252?v=4)"></div>
+              <span class="in-nom">RiccardoMasutti</span>
+            </a>
+            <a href="https://github.com/petzsch" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/1374810?v=4)"></div>
+              <span class="in-nom">petzsch</span>
+            </a>
+            <a href="https://github.com/dafunction" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/18316226?v=4)"></div>
+              <span class="in-nom">dafunction</span>
+            </a>
+            <a href="https://github.com/Vutov" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/9143601?v=4)"></div>
+              <span class="in-nom">Vutov</span>
+            </a>
+            <a href="https://github.com/astupidmoose" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/3916318?v=4)"></div>
+              <span class="in-nom">astupidmoose</span>
+            </a>
+            <a href="https://github.com/LinoxBE" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/19635505?v=4)"></div>
+              <span class="in-nom">LinoxBE</span>
+            </a>
+            <a href="https://github.com/sethforprivacy" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/40500387?v=4)"></div>
+              <span class="in-nom">sethforprivacy</span>
+            </a>
+            <a href="https://github.com/bitcoinbrisbane" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/8411406?v=4)"></div>
+              <span class="in-nom">bitcoinbrisbane</span>
+            </a>
+            <a href="https://github.com/dalijolijo" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/37987466?v=4)"></div>
+              <span class="in-nom">dalijolijo</span>
+            </a>
+            <a href="https://github.com/strophy" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/32928115?v=4)"></div>
+              <span class="in-nom">strophy</span>
+            </a>
+            <a href="https://github.com/2pac1" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/35058480?v=4)"></div>
+              <span class="in-nom">2pac1</span>
+            </a>
+            <a href="https://github.com/MarnixCroes" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/93143998?v=4)"></div>
+              <span class="in-nom">MarnixCroes</span>
+            </a>
+            <a href="https://github.com/artdesignbySF" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/58935244?v=4)"></div>
+              <span class="in-nom">artdesignbySF</span>
+            </a>
+            <a href="https://github.com/ch4ot1c" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/2287825?v=4)"></div>
+              <span class="in-nom">ch4ot1c</span>
+            </a>
+            <a href="https://github.com/m3dwards" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/1204616?v=4)"></div>
+              <span class="in-nom">m3dwards</span>
+            </a>
+            <a href="https://github.com/apps/dependabot" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/in/29110?v=4)"></div>
+              <span class="in-nom">dependabot[bot]</span>
+            </a>
+            <a href="https://github.com/Dolu89" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/4184590?v=4)"></div>
+              <span class="in-nom">Dolu89</span>
+            </a>
+            <a href="https://github.com/syndicato-de-gato" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/38872852?v=4)"></div>
+              <span class="in-nom">syndicato-de-gato</span>
+            </a>
+            <a href="https://github.com/takinbo" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/41004?v=4)"></div>
+              <span class="in-nom">takinbo</span>
+            </a>
+            <a href="https://github.com/xpayserver" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/67416048?v=4)"></div>
+              <span class="in-nom">xpayserver</span>
+            </a>
+            <a href="https://github.com/alevchuk" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/64738?v=4)"></div>
+              <span class="in-nom">alevchuk</span>
+            </a>
+            <a href="https://github.com/wiz" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/232186?v=4)"></div>
+              <span class="in-nom">wiz</span>
+            </a>
+            <a href="https://github.com/andrasfuchs" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/910321?v=4)"></div>
+              <span class="in-nom">andrasfuchs</span>
+            </a>
+            <a href="https://github.com/joemphilips" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/10084960?v=4)"></div>
+              <span class="in-nom">joemphilips</span>
+            </a>
+            <a href="https://github.com/msafi" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/4027731?v=4)"></div>
+              <span class="in-nom">msafi</span>
+            </a>
+            <a href="https://github.com/sotblad" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/26393434?v=4)"></div>
+              <span class="in-nom">sotblad</span>
+            </a>
+            <a href="https://github.com/daviogg" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/33121159?v=4)"></div>
+              <span class="in-nom">daviogg</span>
+            </a>
+            <a href="https://github.com/zechendorf" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/11517177?v=4)"></div>
+              <span class="in-nom">zechendorf</span>
+            </a>
+            <a href="https://github.com/danielcharrua" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/31829061?v=4)"></div>
+              <span class="in-nom">danielcharrua</span>
+            </a>
+            <a href="https://github.com/wakiyamap" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/7189933?v=4)"></div>
+              <span class="in-nom">wakiyamap</span>
+            </a>
+            <a href="https://github.com/shesek" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/877904?v=4)"></div>
+              <span class="in-nom">shesek</span>
+            </a>
+            <a href="https://github.com/joeblackwaslike" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/1109300?v=4)"></div>
+              <span class="in-nom">joeblackwaslike</span>
+            </a>
+            <a href="https://github.com/araspitzu" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/2931875?v=4)"></div>
+              <span class="in-nom">araspitzu</span>
+            </a>
+            <a href="https://github.com/HugoDoyon" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/17368121?v=4)"></div>
+              <span class="in-nom">HugoDoyon</span>
+            </a>
+            <a href="https://github.com/owldock" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/48806964?v=4)"></div>
+              <span class="in-nom">owldock</span>
+            </a>
+            <a href="https://github.com/21isenough" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/39227503?v=4)"></div>
+              <span class="in-nom">21isenough</span>
+            </a>
+            <a href="https://github.com/MaxHillebrand" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/30683012?v=4)"></div>
+              <span class="in-nom">MaxHillebrand</span>
+            </a>
+            <a href="https://github.com/rsafier" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/645964?v=4)"></div>
+              <span class="in-nom">rsafier</span>
+            </a>
+            <a href="https://github.com/pajasevi" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/2407408?v=4)"></div>
+              <span class="in-nom">pajasevi</span>
+            </a>
+            <a href="https://github.com/ayushjain9501" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/42704976?v=4)"></div>
+              <span class="in-nom">ayushjain9501</span>
+            </a>
+            <a href="https://github.com/jooray" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/1028688?v=4)"></div>
+              <span class="in-nom">jooray</span>
+            </a>
+            <a href="https://github.com/bjarnemagnussen" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/32176650?v=4)"></div>
+              <span class="in-nom">bjarnemagnussen</span>
+            </a>
+            <a href="https://github.com/plmdie" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/100805793?v=4)"></div>
+              <span class="in-nom">plmdie</span>
+            </a>
+            <a href="https://github.com/zaowens" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/5881597?v=4)"></div>
+              <span class="in-nom">zaowens</span>
+            </a>
+            <a href="https://github.com/theborakompanioni" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/3358649?v=4)"></div>
+              <span class="in-nom">theborakompanioni</span>
+            </a>
+            <a href="https://github.com/apps/transifex-integration" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/in/18568?v=4)"></div>
+              <span class="in-nom">transifex-integration[bot]</span>
+            </a>
+            <a href="https://github.com/Saurabh130" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/54713778?v=4)"></div>
+              <span class="in-nom">Saurabh130</span>
+            </a>
+            <a href="https://github.com/AryanJ-NYC" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/8263430?v=4)"></div>
+              <span class="in-nom">AryanJ-NYC</span>
+            </a>
+            <a href="https://github.com/Uter1007" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/3653245?v=4)"></div>
+              <span class="in-nom">Uter1007</span>
+            </a>
+            <a href="https://github.com/danlutz" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/21310970?v=4)"></div>
+              <span class="in-nom">danlutz</span>
+            </a>
+            <a href="https://github.com/iBobik" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/614232?v=4)"></div>
+              <span class="in-nom">iBobik</span>
+            </a>
+            <a href="https://github.com/manuee" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/105582?v=4)"></div>
+              <span class="in-nom">manuee</span>
+            </a>
+            <a href="https://github.com/Kixunil" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/1178779?v=4)"></div>
+              <span class="in-nom">Kixunil</span>
+            </a>
+            <a href="https://github.com/webworthy" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/57650477?v=4)"></div>
+              <span class="in-nom">webworthy</span>
+            </a>
+            <a href="https://github.com/ksdhans" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/19198799?v=4)"></div>
+              <span class="in-nom">ksdhans</span>
+            </a>
+            <a href="https://github.com/vasuxdev" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/61128586?v=4)"></div>
+              <span class="in-nom">vasuxdev</span>
+            </a>
+            <a href="https://github.com/Karem-sobhy" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/19779701?v=4)"></div>
+              <span class="in-nom">Karem-sobhy</span>
+            </a>
+            <a href="https://github.com/wbnns" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/1130872?v=4)"></div>
+              <span class="in-nom">wbnns</span>
+            </a>
+            <a href="https://github.com/jsmith-dev" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/10548240?v=4)"></div>
+              <span class="in-nom">jsmith-dev</span>
+            </a>
+            <a href="https://github.com/mandelmonkey" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/6570295?v=4)"></div>
+              <span class="in-nom">mandelmonkey</span>
+            </a>
+            <a href="https://github.com/Amperture" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/5555192?v=4)"></div>
+              <span class="in-nom">Amperture</span>
+            </a>
+            <a href="https://github.com/theseatoms" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/4283471?v=4)"></div>
+              <span class="in-nom">theseatoms</span>
+            </a>
+            <a href="https://github.com/vesellov" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/5828660?v=4)"></div>
+              <span class="in-nom">vesellov</span>
+            </a>
+            <a href="https://github.com/kogeki" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/17801223?v=4)"></div>
+              <span class="in-nom">kogeki</span>
+            </a>
+            <a href="https://github.com/queenvictoria" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/694770?v=4)"></div>
+              <span class="in-nom">queenvictoria</span>
+            </a>
+            <a href="https://github.com/aarani" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/9452646?v=4)"></div>
+              <span class="in-nom">aarani</span>
+            </a>
+            <a href="https://github.com/kngako" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/6692413?v=4)"></div>
+              <span class="in-nom">kngako</span>
+            </a>
+            <a href="https://github.com/thedon-chris" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/30728737?v=4)"></div>
+              <span class="in-nom">thedon-chris</span>
+            </a>
+            <a href="https://github.com/aaronmboyd" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/13218496?v=4)"></div>
+              <span class="in-nom">aaronmboyd</span>
+            </a>
+            <a href="https://github.com/asadaddy" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/29918263?v=4)"></div>
+              <span class="in-nom">asadaddy</span>
+            </a>
+            <a href="https://github.com/rjocoleman" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/154176?v=4)"></div>
+              <span class="in-nom">rjocoleman</span>
+            </a>
+            <a href="https://github.com/woutersmit" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/149628?v=4)"></div>
+              <span class="in-nom">woutersmit</span>
+            </a>
+            <a href="https://github.com/ktechmidas" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/9920871?v=4)"></div>
+              <span class="in-nom">ktechmidas</span>
+            </a>
+            <a href="https://github.com/valsha" class="ind-icon">
+              <div class="in-img" style="background-image:url(https://avatars.githubusercontent.com/u/7966513?v=4)"></div>
+              <span class="in-nom">valsha</span>
+            </a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer-parent blockGreenFoot"><div class="footerBlock">
   <div>
-    <h3 class="ftbTr_" id="fBTrig_-0">BTCPAY BASICS</h3>
+    <h3 class="ftbTr_" id="fBTrig_-0">Software</h3>
     <ul class="ftb_" id="fBT_-0">
       <li>
-        <a alt="Introduction" href="https://docs.btcpayserver.org/">Introduction</a>
+        <a title="Introduction" href="https://docs.btcpayserver.org/Guide/">Introduction</a>
       </li>
       <li>
-        <a alt="Use Case" href="https://docs.btcpayserver.org/btcpay-basics/usecase">Use Case</a>
+        <a title="Use Case" href="https://docs.btcpayserver.org/UseCase/">Use Case</a>
       </li>
       <li>
-        <a alt="Walk-through" href="https://docs.btcpayserver.org/btcpay-basics/walkthrough">Walk-through</a>
+        <a title="Apps"
+          href="https://docs.btcpayserver.org/Apps/">Apps</a>
       </li>
       <li>
-        <a alt="Getting Started" href="https://docs.btcpayserver.org/btcpay-basics/gettingstarted">Getting Started</a>
+        <a title="Deployment" href="https://docs.btcpayserver.org/Deployment/">Deployment</a>
       </li>
       <li>
-        <a alt=">BTCPay vs others" href="https://docs.btcpayserver.org/btcpay-basics/btcpayvsothers">BTCPay vs others</a>
-      </li>
-      <li>
-        <a alt="Lightning Network" href="https://docs.btcpayserver.org/features/lightningnetwork">Lightning Network</a>
-      </li>
-      <li>
-        <a alt="Try it Out" href="https://mainnet.demo.btcpayserver.org/">Try it Out</a>
+        <a title="Getting Started" href="https://docs.btcpayserver.org/RegisterAccount/">Getting Started</a>
       </li>
     </ul>
   </div>
   <div>
-    <h3 class="ftbTr_" id="fBTrig_-1">DEPLOYMENT</h3>
+    <h3 class="ftbTr_" id="fBTrig_-1">Resources</h3>
     <ul class="ftb_" id="fBT_-1">
-      <li>
-        <a alt="Choosing a Deployment Method" href="https://docs.btcpayserver.org/deployment/deployment">Choosing a Deployment Method</a>
+      <li class="">
+        <a class="" title="Documentation" href="https://docs.btcpayserver.org/">Documentation</a>
       </li>
-      <li>
-        <a alt="Web Deployment" href="https://docs.btcpayserver.org/deployment/lunanodewebdeployment">Web Deployment</a>
+      <li class="">
+        <a class="" title="Development" href="https://docs.btcpayserver.org/Development/">Development</a>
       </li>
-      <li>
-        <a alt="Azure Deployment" href="https://docs.btcpayserver.org/deployment/azuredeployment">Azure Deployment</a>
-      </li>
-      <li>
-        <a alt="Docker Deployment" href="https://docs.btcpayserver.org/deployment/dockerdeployment">Docker Deployment</a>
-      </li>
-      <li>
-        <a alt="Google Cloud Deployment" href="https://docs.btcpayserver.org/deployment/googleclouddeployment">Google Cloud Deployment</a>
-      </li>
-      <li>
-        <a alt="Manual Deployment" href="https://docs.btcpayserver.org/deployment/manualdeployment">Manual Deployment</a>
-      </li>
-      <li>
-        <a alt="Hardware Deployment" href="https://docs.btcpayserver.org/deployment/manualdeployment">Hardware Deployment</a>
-      </li>
-      <li>
-        <a alt="Third-Party Hosting" href="https://docs.btcpayserver.org/deployment/thirdpartyhosting">Third-Party Hosting</a>
-      </li>
-    </ul>
-  </div>
-  <div>
-    <h3 class="ftbTr_" id="fBTrig_-2">INTEGRATIONS AND APPS</h3>
-    <ul class="ftb_" id="fBT_-2">
-      <li>
-        <a alt="WooCommerce" href="https://docs.btcpayserver.org/integrations/woocommerce">WooCommerce</a>
-      </li>
-      <li>
-        <a alt="Drupal" href="https://docs.btcpayserver.org/integrations/drupal">Drupal</a>
-      </li>
-      <li>
-        <a alt="Magento" href="https://docs.btcpayserver.org/integrations/magento">Magento</a>
-      </li>
-      <li>
-        <a alt="PrestaShop" href="https://docs.btcpayserver.org/integrations/prestashop">PrestaShop</a>
-      </li>
-      <li>
-        <a alt="Custom Integration" href="https://docs.btcpayserver.org/integrations/customintegration">Custom Integration</a>
-      </li>
-      <li>
-        <a alt="e-Shop Demo" href="https://store.btcpayserver.org/">e-Shop Demo</a>
-      </li>
-      <li>
-        <a alt="Point of Sale Demo"
-          href="https://mainnet.demo.btcpayserver.org/apps/3utBTfSKkW4gK7aQMd2hW5Bh9Fpa/pos">Point of Sale Demo</a>
-      </li>
-      <li>
-        <a alt="Crowdfund App Demo" href="https://btcpay.kukks.org/apps/pMb1bieuysP3MH2d2s9Yi11Pvb/crowdfund">Crowdfund App Demo</a>
-      </li>
-      <li>
-        <a alt="Payment Button" target="blank_" href="https://store.demo.btcpayserver.org/index.php/payment-button-demo/">Payment Button</a>
-      </li>
-      <li>
-        <a alt="BTCPay Contributor?" target="blank_" href="https://mainnet.demo.btcpayserver.org/payment-requests/71cc2883-166c-4c46-8079-e595a251b43e">Payment Request Demo</a>
-      </li>
-    </ul>
-  </div>
-  <div>
-    <h3 class="ftbTr_" id="fBTrig_-3">COMMUNITY</h3>
-    <ul class="ftb_" id="fBT_-3">
       <li class="nullTrans">
-        <a class="nullTrans" alt="GitHub" href="https://github.com/btcpayserver/">GitHub</a>
+        <a class="nullTrans" title="GitHub" href="https://github.com/btcpayserver/">GitHub</a>
       </li>
       <li>
-        <a alt="MATTERMOST" href="http://chat.btcpayserver.org/">Mattermost Chat</a>
+        <a title="Support" href="https://docs.btcpayserver.org/Support/">Support</a>
       </li>
       <li>
-        <a alt="FAQ" href="https://docs.btcpayserver.org/faq-and-common-issues/faq">FAQ</a>
+        <a title="FAQ" href="https://docs.btcpayserver.org/FAQ/">FAQ</a>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h3 class="ftbTr_" id="fBTrig_-3">Community</h3>
+    <ul class="ftb_" id="fBT_-3">
+      <li>
+        <a title="Blog" href="https://blog.btcpayserver.org">Blog</a>
       </li>
       <li>
-        <a alt="Troubleshooting"
-          href="https://docs.btcpayserver.org/support-and-community/troubleshooting">Troubleshooting</a>
+        <a title="Chat" href="https://chat.btcpayserver.org">Chat</a>
       </li>
       <li>
-        <a alt="Developer docs" href="https://docs.btcpayserver.org/development/">Developer docs</a>
+        <a title="Directory" href="https://directory.btcpayserver.org">Directory</a>
       </li>
       <li>
-        <a alt="Community" href="https://docs.btcpayserver.org/support-and-community/community">Community</a>
+        <a title="Contribute" href="https://docs.btcpayserver.org/Contribute/">Contribute</a>
       </li>
       <li>
-        <a alt="Blog" href="https://blog.btcpayserver.org">Blog</a>
-      </li>
-      <li>
-        <a alt="Directory" href="https://directory.btcpayserver.org">Directory</a>
-      </li>
-      <li>
-        <a alt="Support" href="https://docs.btcpayserver.org/support-and-community/support">Support</a>
-      </li>
-      <li>
-        <a alt="Contribute" href="https://docs.btcpayserver.org/support-and-community/contribute">Contribute</a>
-      </li>
-      <li>
-        <a alt="Translate BTCPay" href="https://www.transifex.com/btcpayserver/">Translate BTCPay</a>
-      </li>
-      <li>
-        <a alt="Contribute" href="/donate">Donate</a>
+        <a title="Donate" href="/donate">Donate</a>
       </li>
     </ul>
   </div>
 
+
   <p class="copyright_">
-    <a class="nullTrans" alt="Flat 18 Microsystems Development LLC << FLAT18.CO.UK >>"
-      href="https://flat18.co.uk">Website built with ⚡ by  FLAT18.CO.UK</a>
+    <a class="nullTrans" title="Flat 18 Micro << FLAT18.CO.UK >>"
+      href="https://flat18.co.uk">Website built with ⚡ by Flat 18</a>
     <br>
-     Content Released under MIT license<br> This website does not use cookies nor collect personal data.
+    Content Released under MIT license.
+    <br>
+    This website does not use cookies nor collect personal data.
   </p>
 </div>
 
-            </div>
-        </div>
+</div>
 
-    </div>
-    <!-- END OF p-nm-co-ho -->
-    <div id="videoContainer" style="display:none;">
-        <span class="closeVideoWindow" onclick="endVideo();">
-            <i class="fas fa-times"></i>&nbsp;close</span>
-        <div id="videoContainer_video0"></div>
-    </div>
-    <!-- END OF videoContainer -->
-    <div id="systemAlert" style="display:none;"></div>
-    <!-- END OF alert -->
-    <div id="curtainGen" style="display:none;">
-        <span class="closeVideoWindow" onclick="closeCurtain();">
-            <i class="fas fa-times"></i>&nbsp;close</span>
-        <div class="closeDonationButton" style="visibility:hidden;" onclick="uPHis('/#donate');cDon(this);">
-            <i class="fas fa-arrow-left"></i>
-        </div>
-        <div class="curtainWorkspace">
 
-            <div class="donParent" id="donParent">
+		</div>
 
-                <div class="promoteDonation modPar">
-
-                    <div class="jsInvoiceWorkspacePre">
-
-                        <div class="nonJavascriptMessage">
-                            <span>Please enable JavaScript for the best experience of this donation invoicing module.</span>
-                            <form method="POST" action="https://mainnet.demo.btcpayserver.org/api/v1/invoices">
-                                <input type="hidden" name="storeId"
-                                    value="EErYwCthBNfJUpuU1etH1uhg3x1YVH1q1F2zez7u1AAX" />
-                                <input type="hidden" name="price" value="5" />
-                                <input class="cur-val-fu" type="hidden" name="currency" value="USD" />
-                                <input type="image" src="/img/pay-2.png" name="submit" style="width:209px"
-                                    alt="Pay with BtcPay, Self-Hosted Bitcoin Payment Processor">
-                            </form>
-                        </div>
-                        <div class="currencyOpts">
-                            <span class="vci-in-m" onclick="setVisCur('btc');foTO(0);" alt="Bitcoin">btc<span
-                                    class="cur_name"></span></span>
-                            <span class="vci-in-m focused" onclick="setVisCur('usd');foTO(1);"
-                                alt="Dollar (US)">usd<span class="cur_name">usd</span></span>
-                            <span class="vci-in-m" onclick="setVisCur('cad');foTO(2);" alt="Dollar (CA)">cad<span
-                                    class="cur_name"></span></span>
-                            <span class="vci-in-m" onclick="setVisCur('eur');foTO(3);" alt="Euro">eur<span
-                                    class="cur_name"></span></span>
-                            <span class="vci-in-m" onclick="setVisCur('gbp');foTO(4);"
-                                alt="Pound Sterling (GB)">gbp<span class="cur_name"></span></span>
-                        </div>
-                        <div class="jsR_don GenerateInvoiceButton oF_JS_Env"></div>
-                    </div>
-
-                    <div class="text-center statusButton" style="display:none;">
-                        <svg version="1.1" class="spinnerAnimated" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="283.46px"
-                            height="283.46px" viewBox="0 0 283.46 283.46" enable-background="new 0 0 283.46 283.46"
-                            xml:space="preserve">
-                            <circle fill="none" stroke="#329f65" stroke-width="30" stroke-linecap="round"
-                                stroke-miterlimit="10" cx="141.73" cy="141.73" r="106.762" />
-                        </svg>
-                        <span class="genIn_">Generating your invoice...<b class="genVal_"></b>
-                        </span>
-                    </div>
-
-                    <div class="jsInvoiceWorkspace" style="display:none;" class=""></div>
-
-                </div>
-
-                <span class="demoBlockText" style="display:none;">
-                    <!-- PLACEHOLDER FOR ANY FUTURE TEXT -->
-                </span>
-            </div>
-
-        </div>
-    </div>
-    <!-- END OF curtain -->
-</body>
+	</div>
+	<!-- END OF THEME CONTAINER -->
 <script src="/js/scripts.js"></script>
+</body>
 </html>
